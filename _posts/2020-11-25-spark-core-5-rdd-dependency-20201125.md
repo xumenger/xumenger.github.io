@@ -5,25 +5,108 @@ categories: 大数据之kafka 大数据之spark
 tags: scala java 大数据 kafka spark MacOS 环境搭建 Scala Maven Hadoop SQL 算子 数据分析 groupBy filter distinct coalesce shuffle 数据倾斜 分区 分组 聚合 关系型数据库 行动算子 转换算子 Driver Executor 闭包 序列化 血缘 依赖 宽依赖 窄依赖 阶段 持久化 checkpoint 检查点 
 ---
 
-## RDD 血缘关系
+## [RDD 血缘关系](https://www.bilibili.com/video/BV11A411L7CK?p=93)
 
-https://www.bilibili.com/video/BV11A411L7CK?p=93
+RDD 只支持粗粒度转换，即在大量记录上执行的单个操作。将创建 RDD 的一系列 Lineage（血统）记录下来，以便恢复丢失的分区。RDD 的 Lineage 会记录 RDD 的元数据信息和转换行为，当该RDD 的部分分区数据丢失时，它可以根据这些信息来重新运算和恢复丢失的数据分区
 
+```scala
+val fileRDD: RDD[String] = sc.textFile("input/1.txt")
+println(fileRDD.toDebugString)
+println("----------------------")
 
+val wordRDD: RDD[String] = fileRDD.flatMap(_.split(" "))
+println(wordRDD.toDebugString)
+println("----------------------")
 
-https://www.bilibili.com/video/BV11A411L7CK?p=94
+val mapRDD: RDD[(String, Int)] = wordRDD.map((_,1))
+println(mapRDD.toDebugString)
+println("----------------------")
+
+val resultRDD: RDD[(String, Int)] = mapRDD.reduceByKey(_+_)
+println(resultRDD.toDebugString)
+
+resultRDD.collect()
+```
+
+## RDD 依赖关系
+
+所谓的依赖关系，其实就是两个相邻 RDD 之间的关系
+
+```scala
+val sc: SparkContext = new SparkContext(conf)
+
+val fileRDD: RDD[String] = sc.textFile("input/1.txt")
+println(fileRDD.dependencies)
+println("----------------------")
+
+val wordRDD: RDD[String] = fileRDD.flatMap(_.split(" "))
+println(wordRDD.dependencies)
+println("----------------------")
+
+val mapRDD: RDD[(String, Int)] = wordRDD.map((_,1))
+println(mapRDD.dependencies)
+println("----------------------")
+
+val resultRDD: RDD[(String, Int)] = mapRDD.reduceByKey(_+_)
+println(resultRDD.dependencies)
+
+resultRDD.collect()
+```
 
 ## 宽依赖和窄依赖
 
+窄依赖表示每一个父(上游)RDD 的 Partition 最多被子（下游）RDD 的一个 Partition 使用，窄依赖我们形象的比喻为独生子女
 
-## 阶段
+```scala
+class OneToOneDependency[T](rdd: RDD[T]) extends NarrowDependency[T](rdd)
+```
 
+宽依赖表示同一个父（上游）RDD 的 Partition 被多个子（下游）RDD 的 Partition 依赖，会引起 Shuffle，总结：宽依赖我们形象的比喻为多生
+
+```scala
+class ShuffleDependency[K: ClassTag, V: ClassTag, C: ClassTag](
+    @transient private val _rdd: RDD[_ <: Product2[K, V]],
+    val partitioner: Partitioner,
+    val serializer: Serializer = SparkEnv.get.serializer,
+    val keyOrdering: Option[Ordering[K]] = None,
+    val aggregator: Option[Aggregator[K, V, C]] = None,
+    val mapSideCombine: Boolean = false)
+  extends Dependency[Product2[K, V]]
+```
+
+## [RDD 阶段划分](https://www.bilibili.com/video/BV11A411L7CK?p=96)
+
+DAG（Directed Acyclic Graph）有向无环图是由点和线组成的拓扑图形，该图形具有方向，不会闭环。例如，DAG 记录了 RDD 的转换过程和任务的阶段
+
+![](../media/image/2020-11-25-5/00.png)
 
 阶段是和shuffle 有一定关系的，就是因为要打乱重新组合，才需要等待，而这个等待就会划分成一个阶段，本来Spark 的任务是没有依赖的，各自并行处理分区中的数据，因为有了shuffle，就导致分区间有了依赖，按照shuffle 划分阶段，那么下一个阶段必须依赖上一个阶段，要上一个阶段执行完才可以继续执行下一个阶段！
 
-https://www.bilibili.com/video/BV11A411L7CK?p=96
-
 可以从collect 算子一步一步点进去看Spark 是如何处理任务调度、shuffle、阶段的
+
+```scala
+  // org.apache.spark.scheduler.DAGScheduler
+
+  /**
+   * Create a ResultStage associated with the provided jobId.
+   */
+  private def createResultStage(
+      rdd: RDD[_],
+      func: (TaskContext, Iterator[_]) => _,
+      partitions: Array[Int],
+      jobId: Int,
+      callSite: CallSite): ResultStage = {
+    checkBarrierStageWithDynamicAllocation(rdd)
+    checkBarrierStageWithNumSlots(rdd)
+    checkBarrierStageWithRDDChainPattern(rdd, partitions.toSet.size)
+    val parents = getOrCreateParentStages(rdd, jobId)
+    val id = nextStageId.getAndIncrement()
+    val stage = new ResultStage(id, rdd, func, partitions, parents, jobId, callSite)
+    stageIdToStage(id) = stage
+    updateJobIdStageIdMaps(jobId, stage)
+    stage
+  }
+```
 
 当RDD 中存在shuffle 依赖时，阶段会自动增加一个。阶段的数量 = shuffle 依赖的数量 + 1。ResultStage 只有一个，最后需要执行的阶段！
 
@@ -76,15 +159,29 @@ val reduceRDD : RDD[(String, Int)] = mapRDD.reduceByKey(_ + _)
 reduceRDD.collect().foreach(println)
 ```
 
-为什么checkpoint() 会触发新的Job，可以看一下checkpoint() 的源码
+为什么checkpoint() 会触发新的Job，可以看一下RDD.checkpoint() 的源码
 
 ```scala
-
+  /**
+   * Mark this RDD for checkpointing. It will be saved to a file inside the checkpoint
+   * directory set with `SparkContext#setCheckpointDir` and all references to its parent
+   * RDDs will be removed. This function must be called before any job has been
+   * executed on this RDD. It is strongly recommended that this RDD is persisted in
+   * memory, otherwise saving it on a file will require recomputation.
+   */
+  def checkpoint(): Unit = RDDCheckpointData.synchronized {
+    // NOTE: we use a global lock here due to complexities downstream with ensuring
+    // children RDD partitions point to the correct parent partitions. In the future
+    // we should revisit this consideration.
+    if (context.checkpointDir.isEmpty) {
+      throw new SparkException("Checkpoint directory has not been set in the SparkContext")
+    } else if (checkpointData.isEmpty) {
+      checkpointData = Some(new ReliableRDDCheckpointData(this))
+    }
+  }
 ```
 
-持久化和checkpoint 还有一个重要的不同，看一下其血缘关系有什么不同！
-
-https://www.bilibili.com/video/BV11A411L7CK?p=102
+持久化和checkpoint 还有一个重要的不同，[看一下其血缘关系有什么不同！](https://www.bilibili.com/video/BV11A411L7CK?p=102)
 
 持久化会在血缘关系中添加新的依赖，这样的话，一旦数据丢失了、缓存失效了，可以通过血缘关系回过头来找到持久化数据
 
@@ -92,9 +189,7 @@ https://www.bilibili.com/video/BV11A411L7CK?p=102
 
 所以checkpoint 等同于改变了数据源！
 
-## RDD 分区器
-
-https://www.bilibili.com/video/BV11A411L7CK?p=103
+## [RDD 分区器](https://www.bilibili.com/video/BV11A411L7CK?p=103)
 
 Spark 目前支持Hash 分区、Range 分区和用户自定义分区。用户可以实现一个自定义的分区器，那么数据就可以按照用户自定义的规则放在不同的分区！
 
@@ -130,7 +225,6 @@ val rdd = sc.makeRDD(List(
 
 // 指定自定义分区器
 rdd.partRDD: RDD[(String, String)] = rdd.partitionBy(new MyPartitioner
-
 
 partRDD.saveAsTextFile("output")
 ```
