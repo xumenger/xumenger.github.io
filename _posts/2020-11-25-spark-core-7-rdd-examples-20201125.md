@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spark 计算框架：RDD 算子应用案例
+title: Spark 计算框架：RDD 应用案例
 categories: 大数据之kafka 大数据之spark
 tags: scala java 大数据 kafka spark MacOS 环境搭建 Scala Maven Hadoop SQL 算子 数据分析 groupBy filter distinct coalesce shuffle 数据倾斜 分区 分组 聚合 关系型数据库 行动算子 转换算子 尚硅谷 
 ---
