@@ -10,4 +10,18 @@ comments: no
 
 >[https://leetcode.com/](https://leetcode.com/)
 
->[https://github.com/MisterBooo/LeetCodeAnimation](https://github.com/MisterBooo/LeetCodeAnimation)
+## leetcode
+
+```
+https://github.com/haoel/leetcode
+
+// leetcode题解
+https://github.com/azl397985856/leetcode
+https://github.com/soulmachine/leetcode
+
+// 用动画的形式呈现解LeetCode题目的思路
+https://github.com/MisterBooo/LeetCodeAnimation
+
+// 汇总各大互联网公司容易考察的高频leetcode题
+https://github.com/afatcoder/LeetcodeTop
+```

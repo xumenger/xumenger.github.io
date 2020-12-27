@@ -17,120 +17,120 @@ comments: no
 ## leetcode
 
 ```
-https://github.com/haoel/leetcode.git
+https://github.com/haoel/leetcode
 
 // leetcode题解
-https://github.com/azl397985856/leetcode.git
-https://github.com/soulmachine/leetcode.git
+https://github.com/azl397985856/leetcode
+https://github.com/soulmachine/leetcode
 
 // 用动画的形式呈现解LeetCode题目的思路
-https://github.com/MisterBooo/LeetCodeAnimation.git
+https://github.com/MisterBooo/LeetCodeAnimation
 
 // 汇总各大互联网公司容易考察的高频leetcode题
-https://github.com/afatcoder/LeetcodeTop.git
+https://github.com/afatcoder/LeetcodeTop
 ```
 
 ## Unity
 
 ```
-https://github.com/UnityTechnologies/open-project-1.git
+https://github.com/UnityTechnologies/open-project-1
 
 // DOTS
-https://github.com/Unity-Technologies/Animation-Instancing.git
-https://github.com/Unity-Technologies/DOTS-Shmup3D-sample.git
-https://github.com/Unity-Technologies/DOTSSample.git
-https://github.com/Unity-Technologies/DOTS-training-samples.git
-https://github.com/Unity-Technologies/Unity.Animation.Samples.git
+https://github.com/Unity-Technologies/Animation-Instancing
+https://github.com/Unity-Technologies/DOTS-Shmup3D-sample
+https://github.com/Unity-Technologies/DOTSSample
+https://github.com/Unity-Technologies/DOTS-training-samples
+https://github.com/Unity-Technologies/Unity.Animation.Samples
 
 // Shader
-https://github.com/candycat1992/Unity_Shaders_Book.git
-https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project.git
+https://github.com/candycat1992/Unity_Shaders_Book
+https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project
 ```
 
 ## Kafka
 
 ```
-https://github.com/apache/kafka.git
+https://github.com/apache/kafka
 ```
 
 ## Spring
 
 ```
-https://github.com/spring/spring.git
-https://github.com/spring-projects/spring-framework.git
-https://github.com/spring-projects/spring-boot.git
+https://github.com/spring/spring
+https://github.com/spring-projects/spring-framework
+https://github.com/spring-projects/spring-boot
 
 // 循序渐进，学习Spring Boot、Spring Boot & Shiro、Spring Batch、Spring Cloud、Spring Cloud Alibaba、Spring Security & Spring Security OAuth2，博客Spring系列源码
-https://github.com/wuyouzhuguli/SpringAll.git
+https://github.com/wuyouzhuguli/SpringAll
 
 // 史上最简单的Spring Cloud教程源码
-https://github.com/spring-projects/spring-framework.git
+https://github.com/spring-projects/spring-framework
 
 // SpringMVC 和 MyBatis 学习笔记，搭配示例，主要讲解一些基础的概念、用法和配置
-https://github.com/brianway/springmvc-mybatis-learning.git
+https://github.com/brianway/springmvc-mybatis-learning
 ```
 
 ## MyBatis
 
 ```
-https://github.com/mybatis/spring.git
+https://github.com/mybatis/spring
 
 // 中文注释
-https://github.com/tuguangquan/mybatis.git
-https://github.com/yeecode/MyBatisCN.git
+https://github.com/tuguangquan/mybatis
+https://github.com/yeecode/MyBatisCN
 ```
 
 ## Redis
 
 ```
-https://github.com/redis/redis.git
+https://github.com/redis/redis
 
 // 中文注释
-https://github.com/huangz1990/redis-3.0-annotated.git
+https://github.com/huangz1990/redis-3.0-annotated
 ```
 
 ## Nginx
 
 ```
-https://github.com/nginx/nginx.git
+https://github.com/nginx/nginx
 ```
 
 ## Lua
 
 ```
-https://github.com/lua/lua.git
+https://github.com/lua/lua
 ```
 
 ## ANTLR4
 
 ```
-https://github.com/antlr/antlr4.git
+https://github.com/antlr/antlr4
 
 // 用ANTLR4 实现各种语言的语法
-https://github.com/antlr/grammars-v4.git
+https://github.com/antlr/grammars-v4
 ```
 
 ## Spark
 
 ```
-https://github.com/apache/spark.git
+https://github.com/apache/spark
 ```
 
 ## muduo
 
 ```
-https://github.com/chenshuo/muduo.git
-https://github.com/chenshuo/muduo-tutorial.git
+https://github.com/chenshuo/muduo
+https://github.com/chenshuo/muduo-tutorial
 ```
 
 ## libevent
 
 ```
-https://github.com/libevent/libevent.git
+https://github.com/libevent/libevent
 ```
 
 ## Flask
 
 ```
-https://github.com/pallets/flask.git
+https://github.com/pallets/flask
 ```
