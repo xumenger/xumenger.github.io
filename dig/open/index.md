@@ -14,22 +14,6 @@ comments: no
 
 >[https://github.com/blender/blender](https://github.com/blender/blender)
 
-## leetcode
-
-```
-https://github.com/haoel/leetcode
-
-// leetcode题解
-https://github.com/azl397985856/leetcode
-https://github.com/soulmachine/leetcode
-
-// 用动画的形式呈现解LeetCode题目的思路
-https://github.com/MisterBooo/LeetCodeAnimation
-
-// 汇总各大互联网公司容易考察的高频leetcode题
-https://github.com/afatcoder/LeetcodeTop
-```
-
 ## Unity
 
 ```
@@ -93,12 +77,18 @@ https://github.com/huangz1990/redis-3.0-annotated
 
 ```
 https://github.com/nginx/nginx
+
+// 中文注释
+https://github.com/jianfengye/nginx-1.0.14_comment
 ```
 
 ## Lua
 
 ```
 https://github.com/lua/lua
+
+// 中文注释
+https://github.com/TitenWang/lua-comment
 ```
 
 ## ANTLR4
@@ -114,6 +104,9 @@ https://github.com/antlr/grammars-v4
 
 ```
 https://github.com/apache/spark
+
+// 中文注释
+https://github.com/tophua/spark1.52
 ```
 
 ## muduo
