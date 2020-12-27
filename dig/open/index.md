@@ -31,12 +31,6 @@ https://github.com/candycat1992/Unity_Shaders_Book
 https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project
 ```
 
-## Kafka
-
-```
-https://github.com/apache/kafka
-```
-
 ## Spring
 
 ```
@@ -62,6 +56,38 @@ https://github.com/mybatis/spring
 // 中文注释
 https://github.com/tuguangquan/mybatis
 https://github.com/yeecode/MyBatisCN
+```
+
+## Flask
+
+```
+https://github.com/pallets/flask
+```
+
+## Kafka
+
+```
+https://github.com/apache/kafka
+```
+
+## Spark
+
+```
+https://github.com/apache/spark
+
+// 中文注释
+https://github.com/tophua/spark1.52
+```
+
+## 网络库
+
+```
+// muduo
+https://github.com/chenshuo/muduo
+https://github.com/chenshuo/muduo-tutorial
+
+// libevent
+https://github.com/libevent/libevent
 ```
 
 ## Redis
@@ -98,30 +124,4 @@ https://github.com/antlr/antlr4
 
 // 用ANTLR4 实现各种语言的语法
 https://github.com/antlr/grammars-v4
-```
-
-## Spark
-
-```
-https://github.com/apache/spark
-
-// 中文注释
-https://github.com/tophua/spark1.52
-```
-
-## 网络库
-
-```
-// muduo
-https://github.com/chenshuo/muduo
-https://github.com/chenshuo/muduo-tutorial
-
-// libevent
-https://github.com/libevent/libevent
-```
-
-## Flask
-
-```
-https://github.com/pallets/flask
 ```
