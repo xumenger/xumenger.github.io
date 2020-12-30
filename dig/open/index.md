@@ -29,6 +29,7 @@ https://github.com/Unity-Technologies/Unity.Animation.Samples
 // Shader
 https://github.com/candycat1992/Unity_Shaders_Book
 https://github.com/unity3d-jp/UnityChanToonShaderVer2_Project
+https://github.com/IronWarrior/UnityToonShader
 ```
 
 ## Spring
