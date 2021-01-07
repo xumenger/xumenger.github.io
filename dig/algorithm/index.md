@@ -4,7 +4,7 @@ layout: page
 comments: no
 ---
 
->[第 N-1 手资料](http://www.xumenger.com/docs-20200916/)
+>[第 N-1 手资料](http://www.xumenger.com/dig/docs/)
 
 >[数据结构和算法学习指南](https://mp.weixin.qq.com/s/ZYaXOSVM3YBIeRWm7E_jcQ)
 
