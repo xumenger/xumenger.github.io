@@ -22,6 +22,12 @@ comments: no
 
 >[Unity官方文档 DOTS Physics](https://docs.unity3d.com/Manual/com.unity.physics.html)
 
+>[丁小未博客: Unity DOTS技术详解](http://dingxiaowei.cn/2020/02/09/)
+
+>**Unity Shader**
+
+>[丁小未博客: Unity Shader](http://dingxiaowei.cn/tags/Shader/)
+
 >**Blender**
 
 >[https://www.blender.org/support/](https://www.blender.org/support/)
