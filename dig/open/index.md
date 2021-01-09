@@ -4,7 +4,7 @@ layout: page
 comments: no
 ---
 
->[第 N-1 手资料](http://www.xumenger.com/docs-20200916/)
+>[第 N-1 手资料](http://www.xumenger.com/dig/docs/)
 
 >[https://github.com/torvalds/linux](https://github.com/torvalds/linux)
 
