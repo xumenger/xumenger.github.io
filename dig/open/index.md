@@ -14,6 +14,16 @@ comments: no
 
 >[https://github.com/blender/blender](https://github.com/blender/blender)
 
+## 源码调试环境
+
+>[搭建Kafka 源码环境](http://www.xumenger.com/eclipse-kafka-20181113/)
+
+>[搭建Spring Boot 源码环境](http://www.xumenger.com/spring-boot-eclipse-maven-20181201/)
+
+>[搭建Flask 源码环境](http://www.xumenger.com/pycharm-flask-20181202/)
+
+>[搭建Spark 源码环境](http://www.xumenger.com/spark-source-20210114/)
+
 ## Unity
 
 >[https://github.com/UnityTechnologies/open-project-1](https://github.com/UnityTechnologies/open-project-1)
