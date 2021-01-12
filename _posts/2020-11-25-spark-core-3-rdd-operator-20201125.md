@@ -327,7 +327,7 @@ val rdd = sc.makeRDD(List(("a", 1), ("a", 2), ("b", 4)))
 
 // groupByKey 相同key 的数据分在一个组中，形成一个对偶元组
 // 对偶元组中的第一个元素是key，第二个元素是相同的key的value的集合
-val groupRDD : RDD[(String, Iterable[Int])] = rdd.groupByKey((x:Int, y:Int) => {x + y})
+val groupRDD : RDD[(String, Iterable[Int])] = rdd.groupByKey()
 ```
 
 ![](../media/image/2020-11-25-3/01.png)
