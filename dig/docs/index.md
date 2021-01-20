@@ -92,7 +92,7 @@ comments: no
 
 >[https://www.elastic.co/guide/cn/kibana/current/index.html](https://www.elastic.co/guide/cn/kibana/current/index.html)
 
-**Hadoop/Spark/HBase/Hive**
+**Hadoop/Spark/HBase**
 
 >[http://spark.apache.org/docs/latest/](http://spark.apache.org/docs/latest/)
 
@@ -100,7 +100,17 @@ comments: no
 
 >[https://hbase.apache.org/book.html](https://hbase.apache.org/book.html)
 
+**Hive**
+
 >[http://hive.apache.org/](http://hive.apache.org/)
+
+>[https://cwiki.apache.org/confluence/display/Hive/GettingStarted](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
+
+>[https://cwiki.apache.org/confluence/display/Hive/Home#Home-UserDocumentation](https://cwiki.apache.org/confluence/display/Hive/Home#Home-UserDocumentation)
+
+>[https://cwiki.apache.org/confluence/display/Hive/LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+
+>[http://hive.apache.org/javadoc.html](http://hive.apache.org/javadoc.html)
 
 >**libevent**
 
