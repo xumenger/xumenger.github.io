@@ -49,6 +49,15 @@ cd /Users/xumenger/Desktop/library/hbase-2.3.3/hbase-2.3.3/bin
 ./hbase shell
 
 
+## 启动Hive 服务
+cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
+./hive --service metastore &
+
+# 打开Hive 客户端
+cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
+./hive 
+
+
 ## 启动Kafka 服务
 
 
