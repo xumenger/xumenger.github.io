@@ -74,3 +74,4 @@ cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
 
 HDFS Web 端，查看HDFS 中的文件 [http://localhost:50070/explorer.html](http://localhost:50070/explorer.html)
 
+Spark Web 端，查看特定的Spark Job 信息 [http://localhost:4040/jobs/](http://localhost:4040/jobs/)
