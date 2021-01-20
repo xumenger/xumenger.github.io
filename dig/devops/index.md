@@ -63,3 +63,5 @@ cd /Users/xumenger/Desktop/library/hbase-2.3.3/hbase-2.3.3/bin
 
 ## 中间件监控
 
+HDFS Web 端，查看HDFS 中的文件 [http://localhost:50070/explorer.html](http://localhost:50070/explorer.html)
+
