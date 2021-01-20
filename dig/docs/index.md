@@ -92,13 +92,15 @@ comments: no
 
 >[https://www.elastic.co/guide/cn/kibana/current/index.html](https://www.elastic.co/guide/cn/kibana/current/index.html)
 
-**Hadoop/Spark/HBase**
+**Hadoop/Spark/HBase/Hive**
 
 >[http://spark.apache.org/docs/latest/](http://spark.apache.org/docs/latest/)
 
 >[https://spark.apache.org/streaming/](https://spark.apache.org/streaming/)
 
 >[https://hbase.apache.org/book.html](https://hbase.apache.org/book.html)
+
+>[http://hive.apache.org/](http://hive.apache.org/)
 
 >**libevent**
 
