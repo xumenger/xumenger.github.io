@@ -92,19 +92,37 @@ comments: no
 
 >[https://www.elastic.co/guide/cn/kibana/current/index.html](https://www.elastic.co/guide/cn/kibana/current/index.html)
 
-**Hadoop/Spark/HBase**
+**Spark**
 
 >[http://spark.apache.org/docs/latest/](http://spark.apache.org/docs/latest/)
 
 >[https://spark.apache.org/streaming/](https://spark.apache.org/streaming/)
 
->[https://hbase.apache.org/book.html](https://hbase.apache.org/book.html)
+>[http://spark.apache.org/docs/latest/streaming-programming-guide.html](http://spark.apache.org/docs/latest/streaming-programming-guide.html)
+
+**HBase**
+
+>[https://hbase.apache.org/book.html](https://hbase.apache.org/book.html) 包括HBase 介绍、HBase 配置、hbase shell 使用、Java API 使用等说明
+
+>[https://hbase.apache.org/book.html#hbase_apis](https://hbase.apache.org/book.html#hbase_apis)
+
+>[https://hbase.apache.org/book.html#_using_the_java_api_all_hbase_versions](https://hbase.apache.org/book.html#_using_the_java_api_all_hbase_versions)
+
+>[https://hbase.apache.org/book.html#_example_scala_code](https://hbase.apache.org/book.html#_example_scala_code)
+
+>[https://hbase.apache.org/book.html#_basic_spark](https://hbase.apache.org/book.html#_basic_spark)
+
+>[https://hbase.apache.org/book.html#_spark_streaming](https://hbase.apache.org/book.html#_spark_streaming)
+
+>[https://hbase.apache.org/book.html#_sparksqldataframes](https://hbase.apache.org/book.html#_sparksqldataframes)
 
 **Hive**
 
 >[http://hive.apache.org/](http://hive.apache.org/)
 
 >[https://cwiki.apache.org/confluence/display/Hive/GettingStarted](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
+
+>[https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients)
 
 >[https://cwiki.apache.org/confluence/display/Hive/Home#Home-UserDocumentation](https://cwiki.apache.org/confluence/display/Hive/Home#Home-UserDocumentation)
 
