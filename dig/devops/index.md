@@ -84,7 +84,7 @@ cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
 
 ## 中间件监控
 
-HDFS Web UI，查看HDFS 中的文件等信息 [http://localhost:50070/](http://localhost:50070/)
+**HDFS Web UI**，查看HDFS 中的文件等信息 [http://localhost:50070/](http://localhost:50070/)
 
 * Datanodes: 查看各个Datanode 节点的磁盘占用、块等信息
 * Datanode Volume Failures
@@ -92,9 +92,9 @@ HDFS Web UI，查看HDFS 中的文件等信息 [http://localhost:50070/](http://
 * Startup Progress
 * [http://localhost:50070/explorer.html](http://localhost:50070/explorer.html) 查看HDFS 中的文件信息
 
-Spark Web UI，查看特定的Spark Job 信息 [http://localhost:4040/jobs/](http://localhost:4040/jobs/)
+**Spark Web UI**，查看特定的Spark Job 信息 [http://localhost:4040/jobs/](http://localhost:4040/jobs/)
 
-HBase Web UI，查看HBase Master 信息、HBase 表信息等 [http://localhost:16010/](http://localhost:16010/)
+**HBase Web UI**，查看HBase Master 信息、HBase 表信息等 [http://localhost:16010/](http://localhost:16010/)
 
 * Home: 查看基础的内存、存储、副本信息；查看表的信息
 * Table Details: 查看详细的表信息
