@@ -113,8 +113,8 @@ import java.io.IOException;
 
 public class BatchImport {
 
-	public static void main(String args[]) throws IOException
-	{
+    public static void main(String args[]) throws IOException
+    {
         // 构造数据放到文件中，用于后续批量导入
         FileOutputStream fos1 = new FileOutputStream("/Users/xumenger/Desktop/benchtest1.txt");
         FileOutputStream fos2 = new FileOutputStream("/Users/xumenger/Desktop/benchtest2.txt");
@@ -127,18 +127,18 @@ public class BatchImport {
         
         sb.append(String.format("准备%d 条测试数据 ==> benchtest1\n", total));
         for (int i = 1; i<= total; i++) {
-        	if (i != diff) {
-        		String s = String.format("%d,S,something\n", i);
-        		fos1.write(s.getBytes());
-        	} else {
-        		String s = String.format("%d,F,something\n", i);
-        		fos1.write(s.getBytes());
-        	}
+            if (i != diff) {
+                String s = String.format("%d,S,something\n", i);
+                fos1.write(s.getBytes());
+            } else {
+                String s = String.format("%d,F,something\n", i);
+                fos1.write(s.getBytes());
+            }
         }
         
         for (int i = 1; i<= total; i++) {
-        	String s = String.format("%d,S,something\n", i);
-    		fos2.write(s.getBytes());
+            String s = String.format("%d,S,something\n", i);
+            fos2.write(s.getBytes());
         }
         
         // 关闭文件
@@ -186,8 +186,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class SelectTest {
     public static void main(String args[])
-	{
-		DataSource dataSource = new DataSource();
+    {
+        DataSource dataSource = new DataSource();
         dataSource.setUrl("jdbc:hive2://localhost:10000/testbase");
         dataSource.setDriverClassName("org.apache.hive.jdbc.HiveDriver");
         dataSource.setUsername("");
@@ -223,7 +223,7 @@ public class SelectTest {
         System.err.println(sb.toString());
         
         dataSource.close();
-	}
+    }
 }
 ```
 
@@ -247,19 +247,19 @@ public class SelectTest {
 
 ```
 Exception in thread "main" org.springframework.dao.DataAccessResourceFailureException: StatementCallback; SQL [select benchtest1.id, benchtest1.status, benchtest1.ext from benchtest1, benchtest2 where benchtest1.id = benchtest2.id and benchtest1.status != benchtest2.status ]; org.apache.hive.service.cli.HiveSQLException: Error while processing statement: FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
-	at org.apache.hive.service.cli.operation.Operation.toSQLException(Operation.java:380)
-	at org.apache.hive.service.cli.operation.SQLOperation.runQuery(SQLOperation.java:257)
-	at org.apache.hive.service.cli.operation.SQLOperation.access$800(SQLOperation.java:91)
-	at org.apache.hive.service.cli.operation.SQLOperation$BackgroundWork$1.run(SQLOperation.java:348)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at javax.security.auth.Subject.doAs(Subject.java:422)
-	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1926)
-	at org.apache.hive.service.cli.operation.SQLOperation$BackgroundWork.run(SQLOperation.java:362)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
+    at org.apache.hive.service.cli.operation.Operation.toSQLException(Operation.java:380)
+    at org.apache.hive.service.cli.operation.SQLOperation.runQuery(SQLOperation.java:257)
+    at org.apache.hive.service.cli.operation.SQLOperation.access$800(SQLOperation.java:91)
+    at org.apache.hive.service.cli.operation.SQLOperation$BackgroundWork$1.run(SQLOperation.java:348)
+    at java.security.AccessController.doPrivileged(Native Method)
+    at javax.security.auth.Subject.doAs(Subject.java:422)
+    at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1926)
+    at org.apache.hive.service.cli.operation.SQLOperation$BackgroundWork.run(SQLOperation.java:362)
+    at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+    at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+    at java.lang.Thread.run(Thread.java:748)
 ```
 
 具体是在执行这个SQL: select benchtest1.id, benchtest1.status, benchtest1.ext from benchtest1, benchtest2 where benchtest1.id = benchtest2.id and benchtest1.status != benchtest2.status
@@ -273,19 +273,19 @@ Exception in thread "main" org.springframework.dao.DataAccessResourceFailureExce
 ```
 2021-01-23T19:11:51,458  WARN [Thread-4352] mapred.LocalJobRunner: job_local747549383_0110
 java.lang.Exception: java.lang.OutOfMemoryError: Java heap space
-	at org.apache.hadoop.mapred.LocalJobRunner$Job.runTasks(LocalJobRunner.java:491) ~[hadoop-mapreduce-client-common-2.10.1.jar:?]
-	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:551) ~[hadoop-mapreduce-client-common-2.10.1.jar:?]
+    at org.apache.hadoop.mapred.LocalJobRunner$Job.runTasks(LocalJobRunner.java:491) ~[hadoop-mapreduce-client-common-2.10.1.jar:?]
+    at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:551) ~[hadoop-mapreduce-client-common-2.10.1.jar:?]
 Caused by: java.lang.OutOfMemoryError: Java heap space
-	at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.init(MapTask.java:993) ~[hadoop-mapreduce-client-core-2.10.1.jar:?]
-	at org.apache.hadoop.mapred.MapTask.createSortingCollector(MapTask.java:402) ~[hadoop-mapreduce-client-core-2.10.1.jar:?]
-	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:448) ~[hadoop-mapreduce-client-core-2.10.1.jar:?]
-	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:343) ~[hadoop-mapreduce-client-core-2.10.1.jar:?]
-	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:270) ~[hadoop-mapreduce-client-common-2.10.1.jar:?]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[?:1.8.0_161]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[?:1.8.0_161]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_161]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_161]
-	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_161]
+    at org.apache.hadoop.mapred.MapTask$MapOutputBuffer.init(MapTask.java:993) ~[hadoop-mapreduce-client-core-2.10.1.jar:?]
+    at org.apache.hadoop.mapred.MapTask.createSortingCollector(MapTask.java:402) ~[hadoop-mapreduce-client-core-2.10.1.jar:?]
+    at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:448) ~[hadoop-mapreduce-client-core-2.10.1.jar:?]
+    at org.apache.hadoop.mapred.MapTask.run(MapTask.java:343) ~[hadoop-mapreduce-client-core-2.10.1.jar:?]
+    at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:270) ~[hadoop-mapreduce-client-common-2.10.1.jar:?]
+    at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[?:1.8.0_161]
+    at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[?:1.8.0_161]
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_161]
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_161]
+    at java.lang.Thread.run(Thread.java:748) [?:1.8.0_161]
 ```
 
 发现是在执行MapTask 的时候出现了JVM 堆内存溢出，而且HiveServer2 也挂了
