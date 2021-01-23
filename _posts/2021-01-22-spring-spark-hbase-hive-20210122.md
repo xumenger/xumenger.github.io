@@ -288,9 +288,9 @@ Caused by: java.lang.OutOfMemoryError: Java heap space
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_161]
 ```
 
-发现是在执行MapTask 的时候出新了JVM 堆内存溢出，而且HiveServer2 也挂了
+发现是在执行MapTask 的时候出现了JVM 堆内存溢出，而且HiveServer2 也挂了
 
-接下来先重启HiveServer2，然后在hive 命令环境设置map 阶段的JVM 堆内存！
+接下来先重启HiveServer2，然后在hive 命令环境设置Map 阶段的JVM 堆内存！
 
 ```
 hive> set mapreduce.map.memory.mb=10150;
