@@ -82,11 +82,11 @@ cd /Users/xumenger/Desktop/library/kafka/kafka_2.11-1.0.0/
 ./bin/kafka-server-start.sh ./config/server.properties
 
 # 创建Topic，比如
-cd /Users/xumenger/Desktop/library/kafka/kafka_2.11-1.0.0/
 ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic SparkTopic1
 ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic SparkTopic2
 
-
+# 生产者脚本，比如
+./bin/kafka-console-producer.sh --broker-list localhost:9092 --sync --topic SparkTopic1
 
 
 ## 启动Zookeeper，如果HBase 内置的zookeeper 已经启动，这里无法启动
