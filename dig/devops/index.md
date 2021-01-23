@@ -113,7 +113,7 @@ cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
 
 **HiveServer2 Web UI**，查看HiveServer2 日志等信息 [http://localhost:10002/](http://localhost:10002/)
 
-* Home
+* Home: 当前存活的会话、执行过的SQL 执行情况
 * Local logs: 查看HiveServer2 的日志
 * Metrics Dump
 * Hive Configuration: 查看HiveServer2 的配置信息，hive-site.xml
