@@ -45,6 +45,7 @@ cd /Users/xumenger/Desktop/library/hadoop-2.10.1/hadoop-2.10.1/sbin
 
 
 
+
 ## 启动HBase 服务，包含HBase 内置的ZooKeeper
 cd /Users/xumenger/Desktop/library/hbase-2.3.3/hbase-2.3.3/bin
 ./start-hbase.sh
@@ -55,8 +56,10 @@ cd /Users/xumenger/Desktop/library/hbase-2.3.3/hbase-2.3.3/bin
 
 
 
+
 ## 启动MySQL 服务
 mysql.server start
+
 
 
 
@@ -73,7 +76,32 @@ cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
 
 
 
+
 ## 启动Kafka 服务
+cd /Users/xumenger/Desktop/library/kafka/kafka_2.11-1.0.0/
+./bin/kafka-server-start.sh ./config/server.properties
+
+# 创建Topic，比如
+cd /Users/xumenger/Desktop/library/kafka/kafka_2.11-1.0.0/
+./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic SparkTopic1
+./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic SparkTopic2
+
+
+
+
+## 启动Zookeeper，如果HBase 内置的zookeeper 已经启动，这里无法启动
+cd /Users/xumenger/Desktop/library/zookeeper/zookeeper-3.4.12/bin
+./zkServer.sh start
+
+## 连接到Zookeeper 服务端
+# 使用Zookeeper 自己的客户端
+cd /Users/xumenger/Desktop/library/zookeeper/zookeeper-3.4.12/bin
+./zkCli.sh
+
+# 使用HBase 的Zookeeper 客户端
+cd /Users/xumenger/Desktop/library/hbase-2.3.3/hbase-2.3.3/bin
+./hbase zkcli
+
 
 
 
