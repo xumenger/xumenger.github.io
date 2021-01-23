@@ -314,6 +314,8 @@ hive> set mapreduce.reduce.java.opts=-Xmx8120m;
 
 >调优是接下来的一个重点（Hive 参数、YARN 参数、Spark 参数、HDFS 参数）！！！因为在实际的生产环境中，我们的数据量远不止千万级别！
 
+>Hive 表分区？Hive 表格式？Hive 与关系型数据库对比？
+
 ## analyze 表信息分析
 
 >[Hive性能调优工具](https://zhuanlan.zhihu.com/p/334438403)
