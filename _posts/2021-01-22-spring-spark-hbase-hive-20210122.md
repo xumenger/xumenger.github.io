@@ -45,9 +45,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class Application {
 
-	public static void main(String args[])
-	{
-		DataSource dataSource = new DataSource();
+    public static void main(String args[])
+    {
+        DataSource dataSource = new DataSource();
         dataSource.setUrl("jdbc:hive2://localhost:10000/testbase");
         dataSource.setDriverClassName("org.apache.hive.jdbc.HiveDriver");
         dataSource.setUsername("");
@@ -62,17 +62,17 @@ public class Application {
         Long mark1 = System.currentTimeMillis();
         System.err.println(String.format("准备%d 条测试数据 ==> benchtest1", total));
         for (int i = 1; i<= total; i++) {
-        	String sql = "";
-        	if (i != diff) {
-        		sql = String.format("insert into benchtest1 values ('%d', 'S', 'something')", i);
-        	} else {
-        	    sql = String.format("insert into benchtest1 values ('%d', 'F', 'something')", i);
-        	}
-        	jdbcTemplate.update(sql);
+            String sql = "";
+            if (i != diff) {
+                sql = String.format("insert into benchtest1 values ('%d', 'S', 'something')", i);
+            } else {
+                sql = String.format("insert into benchtest1 values ('%d', 'F', 'something')", i);
+            }
+            jdbcTemplate.update(sql);
         }
         Long mark2 = System.currentTimeMillis();
         System.err.println("一共耗时: " + (mark2 - mark1) + "ms");
-	}
+    }
 }
 ```
 
