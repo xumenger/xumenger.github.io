@@ -39,11 +39,6 @@ comments: no
 ## 中间件命令
 
 ```shell
-## 启动MySQL 服务
-mysql.server start
-
-
-
 ## 启动Hadoop 服务
 cd /Users/xumenger/Desktop/library/hadoop-2.10.1/hadoop-2.10.1/sbin
 ./start-all.sh
@@ -60,9 +55,17 @@ cd /Users/xumenger/Desktop/library/hbase-2.3.3/hbase-2.3.3/bin
 
 
 
+## 启动MySQL 服务
+mysql.server start
+
+
+
 ## 启动Hive 服务
 cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
 ./hive --service metastore &
+
+# 启动HiveServer2
+./hive --service hiveserver2 &
 
 # 打开Hive 客户端
 cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
@@ -108,3 +111,11 @@ cd /Users/xumenger/Desktop/library/apache-hive-2.3.8-bin/bin
 * Profiler: 
 * HBase Configuration: 查看HBase 的XML 配置信息
 
+**HiveServer2 Web UI**，查看HiveServer2 日志等信息 [http://localhost:10002/](http://localhost:10002/)
+
+* Home
+* Local logs: 查看HiveServer2 的日志
+* Metrics Dump
+* Hive Configuration: 查看HiveServer2 的配置信息，hive-site.xml
+* Stack Trace: 查看各线程的调用栈信息
+* Llap Daemons

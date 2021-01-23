@@ -1,11 +1,16 @@
 ---
 layout: post
-title: Hive 应用：Hive 性能分析
+title: Hive 应用：Hive 简单性能测试
 categories: 大数据之hadoop 大数据之hbase 大数据之hive 大数据之spark
-tags: Java 大数据 Hadoop HDFS Hive 数据仓库 分布式 HBase Spring SQL SparkSQL
+tags: Java 大数据 Hadoop HDFS Hive 数据仓库 分布式 HBase Spring SQL SparkSQL top CPU 
 ---
 
 Hive 默认是将SQL 编译为MapReduce 任务然后执行的，那么这里简单测试在百万级别的数据量的情况下，Hive 聚合统计、单笔查询的性能
+
+在单机上进行如下测试，正常情况下机器的内存、CPU 占用如下（top 命令查看）
+
+![](../media/image/2021-01-22/01.png)
+
 
 ## 测试数据构造
 
