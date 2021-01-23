@@ -85,15 +85,17 @@ cd /Users/xumenger/Desktop/library/kafka/kafka_2.11-1.0.0/
 ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic SparkTopic1
 ./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic SparkTopic2
 
-# 生产者脚本，比如
+# 生产者脚本，启动后可以随时通过输入生产消息（回车发送消息）
 ./bin/kafka-console-producer.sh --broker-list localhost:9092 --sync --topic SparkTopic1
+
+
 
 
 ## 启动Zookeeper，如果HBase 内置的zookeeper 已经启动，这里无法启动
 cd /Users/xumenger/Desktop/library/zookeeper/zookeeper-3.4.12/bin
 ./zkServer.sh start
 
-## 连接到Zookeeper 服务端
+# 连接到Zookeeper 服务端
 # 使用Zookeeper 自己的客户端
 cd /Users/xumenger/Desktop/library/zookeeper/zookeeper-3.4.12/bin
 ./zkCli.sh
@@ -110,6 +112,7 @@ cd /Users/xumenger/Desktop/library/hbase-2.3.3/hbase-2.3.3/bin
 
 
 ## 启动Kibana
+
 
 ```
 
