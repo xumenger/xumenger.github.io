@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hive 应用：Hive on MapReduce 简单性能测试
+title: 大数据应用：Hive on MapReduce 简单性能测试
 categories: 大数据之hadoop 大数据之hbase 大数据之hive 大数据之spark
 tags: Java 大数据 Hadoop HDFS Hive 数据仓库 分布式 HBase Spring SQL SparkSQL top CPU 
 ---
