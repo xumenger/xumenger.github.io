@@ -80,8 +80,6 @@ public class Application {
 
 必须明确的是，把每条数据处理成insert 语句的方式，肯定是最低效的，不管是在MySQL 中，还是在分布式组件Hive 中。这种方式的资源消耗，更多的花在了连接、SQL 语句的解析、执行计划生成上，实际插入数据的开销还是相对较少的
 
-
-
 执行的结果如下
 
 ![](../media/image/2021-01-22/03.png)
@@ -89,6 +87,118 @@ public class Application {
 此时机器的磁盘剩余空间是
 
 ![](../media/image/2021-01-22/04.png)
+
+>[Hive性能调优工具](https://zhuanlan.zhihu.com/p/334438403)
+
+## analyze 表信息分析
+
+analyze 语句可以收集一些详细的统计信息，比如表的行数、文件数、数据的大小等信息。这些统计信息作为元数据存储在hive 的元数据库中
+
+收集表的统计信息(非分区表)，当指定NOSCAN关键字时，会忽略扫描文件内容，仅仅统计文件的数量与大小，速度会比较快
+
+```sql
+ANALYZE TABLE 表名 COMPUTE STATISTICS; 
+ANALYZE TABLE 表名 COMPUTE STATISTICS NOSCAN;
+```
+
+收集分区表的统计信息
+
+```sql
+ANALYZE TABLE 表名 PARTITION(分区1，分区2) COMPUTE STATISTICS;
+```
+
+收集指定分区信息
+
+```sql
+ANALYZE TABLE 表名 PARTITION(分区1='xxx'，分区2='yyy') COMPUTE STATISTICS;
+```
+
+收集表的某个字段的统计信息
+
+```sql
+ANALYZE TABLE 表名 COMPUTE STATISTICS FOR COLUMNS 字段名 ; 
+```
+
+## explain 执行计划分析
+
+在hive 命令行中可以通过explain 命令分析SQL 的执行计划（和MySQL 的explain 类似！）
+
+```sql
+hive > explain select benchtest1.id, benchtest1.status, benchtest1.ext from benchtest1, benchtest2 where benchtest1.id = benchtest2.id and benchtest1.status != benchtest2.status;
+OK
+STAGE DEPENDENCIES:
+  Stage-4 is a root stage
+  Stage-3 depends on stages: Stage-4
+  Stage-0 depends on stages: Stage-3
+
+STAGE PLANS:
+  Stage: Stage-4
+    Map Reduce Local Work
+      Alias -> Map Local Tables:
+        $hdt$_0:benchtest1 
+          Fetch Operator
+            limit: -1
+      Alias -> Map Local Operator Tree:
+        $hdt$_0:benchtest1 
+          TableScan
+            alias: benchtest1
+            Statistics: Num rows: 4 Data size: 1206 Basic stats: COMPLETE Column stats: NONE
+            Filter Operator
+              predicate: id is not null (type: boolean)
+              Statistics: Num rows: 4 Data size: 1206 Basic stats: COMPLETE Column stats: NONE
+              Select Operator
+                expressions: id (type: string), status (type: string), ext (type: string)
+                outputColumnNames: _col0, _col1, _col2
+                Statistics: Num rows: 4 Data size: 1206 Basic stats: COMPLETE Column stats: NONE
+                HashTable Sink Operator
+                  keys:
+                    0 _col0 (type: string)
+                    1 _col0 (type: string)
+
+  Stage: Stage-3
+    Map Reduce
+      Map Operator Tree:
+          TableScan
+            alias: benchtest2
+            Statistics: Num rows: 1 Data size: 0 Basic stats: PARTIAL Column stats: NONE
+            Filter Operator
+              predicate: id is not null (type: boolean)
+              Statistics: Num rows: 1 Data size: 0 Basic stats: PARTIAL Column stats: NONE
+              Select Operator
+                expressions: id (type: string), status (type: string)
+                outputColumnNames: _col0, _col1
+                Statistics: Num rows: 1 Data size: 0 Basic stats: PARTIAL Column stats: NONE
+                Map Join Operator
+                  condition map:
+                       Inner Join 0 to 1
+                  keys:
+                    0 _col0 (type: string)
+                    1 _col0 (type: string)
+                  outputColumnNames: _col0, _col1, _col2, _col4
+                  Statistics: Num rows: 4 Data size: 1326 Basic stats: COMPLETE Column stats: NONE
+                  Filter Operator
+                    predicate: (_col1 <> _col4) (type: boolean)
+                    Statistics: Num rows: 4 Data size: 1326 Basic stats: COMPLETE Column stats: NONE
+                    Select Operator
+                      expressions: _col0 (type: string), _col1 (type: string), _col2 (type: string)
+                      outputColumnNames: _col0, _col1, _col2
+                      Statistics: Num rows: 4 Data size: 1326 Basic stats: COMPLETE Column stats: NONE
+                      File Output Operator
+                        compressed: false
+                        Statistics: Num rows: 4 Data size: 1326 Basic stats: COMPLETE Column stats: NONE
+                        table:
+                            input format: org.apache.hadoop.mapred.SequenceFileInputFormat
+                            output format: org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
+                            serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+      Local Work:
+        Map Reduce Local Work
+
+  Stage: Stage-0
+    Fetch Operator
+      limit: -1
+      Processor Tree:
+        ListSink
+```
 
 >如果使用Spark 作为执行引擎呢，SQL 的执行性能会快多少？
 
