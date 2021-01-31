@@ -114,7 +114,7 @@ comments: no
 
 **HBase**
 
->[https://hbase.apache.org/book.html](https://hbase.apache.org/book.html) 包括HBase 介绍、HBase 配置、hbase shell 使用、Java API 使用等说明
+>[https://hbase.apache.org/book.html](https://hbase.apache.org/book.html) 包括HBase 介绍、HBase 配置、hbase shell 使用、Java API 使用等
 
 >[https://hbase.apache.org/book.html#hbase_apis](https://hbase.apache.org/book.html#hbase_apis)
 
