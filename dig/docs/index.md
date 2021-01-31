@@ -8,6 +8,18 @@ comments: no
 
 ---
 
+**论文**
+
+>Spark: [https://people.csail.mit.edu/matei/papers/2010/hotcloud_spark.pdf](https://people.csail.mit.edu/matei/papers/2010/hotcloud_spark.pdf)
+
+>MapReduce: [https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf](https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf)
+
+>GFS: [https://pdos.csail.mit.edu/6.824/papers/gfs.pdf](https://pdos.csail.mit.edu/6.824/papers/gfs.pdf)
+
+>BigTable: [http://people.csail.mit.edu/tdanford/6830papers/chang-bigtable.pdf](http://people.csail.mit.edu/tdanford/6830papers/chang-bigtable.pdf)
+
+>Lua: [https://www.lua.org/papers.html](https://www.lua.org/papers.html)
+
 **Unity**
 
 >[https://docs.unity3d.com/Manual/index.html](https://docs.unity3d.com/Manual/index.html)
