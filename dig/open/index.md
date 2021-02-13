@@ -28,7 +28,7 @@ comments: no
 
 >[https://github.com/UnityTechnologies/open-project-1](https://github.com/UnityTechnologies/open-project-1)
 
-## BRDF
+>**BRDF**
 
 >[https://github.com/wdas/brdf](https://github.com/wdas/brdf)，是迪士尼开源的，运行在Windows 的BRDF 浏览器。包含这个浏览器的C++ 实现，以及对应的各种BDRF 光照模型的源码，对于理解计算机图形学、渲染，是很有帮助的
 
