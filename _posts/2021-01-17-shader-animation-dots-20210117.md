@@ -194,3 +194,7 @@ public class CreateObjectManager : MonoBehaviour
 设置角色一共有100 x 100 个，接着Jobs -> Burst -> Enable Compilation 打开后！运行游戏，可以看到其性能指标如下
 
 ![](../media/image/2021-01-17/11.gif)
+
+因为所有的角色的材质是一样的，所以在Footman_Default_Bak 预制件的材质上勾选Enable GPU Instancing，重新运行，FPS 又有了一些提升
+
+![](../media/image/2021-01-17/12.gif)
