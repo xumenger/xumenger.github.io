@@ -76,7 +76,19 @@ public class MoveController : MonoBehaviour
 
 ![](../media/image/2021-03-01/07.png)
 
+运行效果如下（可以选择使用普通的模式生成多个动画模型，也可以选择使用Animation-Instancing 的方式）
 
+![](../media/image/2021-03-01/08.gif)
+
+可以选择使用普通的模式生成多个动画模型，也可以选择使用Animation-Instancing 的方式，打开Stat 的话，可以看到后者的Draw Call 等性能指标明显优于前者！（这里不再做分析）
+
+## 原理分析
+
+本文暂时不分析，不过猜测和之前我研究过的基于GPU 实现动画的原理应该是一致的，或者差不多的
+
+* [Shader 动画：应用于DOTS 应用](http://www.xumenger.com/shader-animation-dots-20210117/)
+* [Shader 动画：基于GPU 的动画优化](http://www.xumenger.com/shader-animation-20210116/)
+* [Shader 动画：传统动画及性能分析方法论](http://www.xumenger.com/shader-animation-20210115/)
 
 ## 参考资料
 
