@@ -120,11 +120,17 @@ comments: no
 
 **Spark**
 
->[http://spark.apache.org/docs/latest/](http://spark.apache.org/docs/latest/)
+>[http://spark.apache.org/](http://spark.apache.org/)
+
+>[http://spark.apache.org/documentation.html](http://spark.apache.org/documentation.html)
 
 >[https://spark.apache.org/streaming/](https://spark.apache.org/streaming/)
 
->[http://spark.apache.org/docs/latest/streaming-programming-guide.html](http://spark.apache.org/docs/latest/streaming-programming-guide.html)
+>[http://spark.apache.org/sql/](http://spark.apache.org/sql/)
+
+>[http://spark.apache.org/mllib/](http://spark.apache.org/mllib/)
+
+>[http://spark.apache.org/graphx/](http://spark.apache.org/graphx/)
 
 **HBase**
 
