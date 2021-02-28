@@ -7,7 +7,74 @@ tags: Unity C# DOTS ECS 动画 GPU-Instancing 蒙皮动画 骨骼动画 Animatio
 
 >[https://github.com/Unity-Technologies/Animation-Instancing](https://github.com/Unity-Technologies/Animation-Instancing)
 
-不纠结原理，先看一下怎么使用这个插件，在菜单栏点击
+不纠结原理，先看一下怎么使用这个插件
+
+## 普通的Unity 动画
+
+创建一个全新的场景MyScene，然后将PolygonFantasyRivals 模型资源包、SwordAndShield 动画资源包导入到游戏中
+
+创建一个Animator Controller，然后将SwordAndShield 中的Run 动作拖入，作为默认动作
+
+![](../media/image/2021-03-01/01.png)
+
+在场景中拖入Environment 环境预制件、Character_SpiritDemon_01 模型预制件
+
+![](../media/image/2021-03-01/02.png)
+
+然后将刚才创建的My Animator Controller 托给场景中的Character_SpiritDemon_01 预制件，并且为模型新增这样的模拟运动的脚本
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveController : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 比如，物体围绕世界坐标的“(10f,0f,0f)”这个点，以“(0f,0f,1f)”为轴向，也就是Z抽进行旋转，旋转角度是“3f”
+        // transform.RotateAround(new Vector3(10f, 0f, 0f), new Vector3(0f, 0f, 1f), 3f);
+
+        transform.RotateAround(transform.position, new Vector3(0f, 1f, 0f), Random.RandomRange(20f, 50f) * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x + 1 * Time.deltaTime, transform.position.y, transform.position.z);
+    }
+}
+```
+
+然后运行起来后，角色是这么运动的
+
+![](../media/image/2021-03-01/03.gif)
+
+## 使用Animation-Instancing
+
+在Hierarchy 中复制Character_SpiritDemon_01 得到一个Character_SpiritDemon_01_Instancing，并且为后者添加AnimationInstancing.cs 脚本
+
+然后打开Animation-Instancing 的窗口，将Character_SpiritDemon_01_Instancing 拖入，点击Generate
+
+![](../media/image/2021-03-01/04.png)
+
+重启Unity，然后在AnimationTexture 目录下可以看到对应Character_SpiritDemon_01_Instancing 的文件
+
+![](../media/image/2021-03-01/05.png)
+
+复制一份Character_SpiritDemon_01 原来的材质球，并将其Shader 都修改为AnimationInstancing/DiffuseInstancing，然后为Character_SpiritDemon_01_Instancing 所有用到材质球的节点都更换为上面设置了AnimationInstancing/DiffuseInstancing 的材质
+
+注意复制一份新的材质球，就是因为要保持Character_SpiritDemon_01 原来的材质球不变化！
+
+上面Generate 按钮点击后，还可以看到Character_SpiritDemon_01_Instancing 的AnimationInstancing 组件的Prototype 属性设置为它自己了！
+
+![](../media/image/2021-03-01/06.png)
+
+为Directional Light 添加Spawner.cs 脚本、AnimationInstancingMgr.cs 脚本，并且Spawner.cs 设置如下的属性
+
+![](../media/image/2021-03-01/07.png)
 
 
 
