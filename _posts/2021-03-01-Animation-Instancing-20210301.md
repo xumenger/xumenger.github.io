@@ -80,7 +80,11 @@ public class MoveController : MonoBehaviour
 
 ![](../media/image/2021-03-01/08.gif)
 
-可以选择使用普通的模式生成多个动画模型，也可以选择使用Animation-Instancing 的方式，打开Stat 的话，可以看到后者的Draw Call 等性能指标明显优于前者！（这里不再做分析）
+可以选择使用普通的模式生成多个动画模型，也可以选择使用Animation-Instancing 的方式，打开Stat 的话，可以看到后者的Draw Call 等性能指标明显优于前者！
+
+可以看到使用Animation-Instancing 的方式Batches 的值没有随着模型数量的增多而增多的，但是这种方式的动画效果稍微没有原始的Animation Controller 好（不过这个是比较好调的）
+
+>但是在测试的过程中遇到这样的问题，按照上面的流程走完之后，Character_SpiritDemon_01_Instancing 赋值到Spawner.cs 的PrefabA 上，可是运行之后，Animation-Intancing 的方式没有按预期生成模型动画，试着使用Hierarchy 中的Character_SpiritDemon_01_Instancing 赋值到Spawner.cs 的PrefabA 上，或者使用Project 中的Character_SpiritDemon_01_Instancing 赋值到Spawner.cs 的PrefabA 上，各种尝试之后，不知道什么时候就突然又可以显示了（好像我没有做什么不一样的设置！）这个还没有弄清楚原因！！！！！！！
 
 ## 原理分析
 
