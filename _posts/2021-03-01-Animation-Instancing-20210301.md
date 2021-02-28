@@ -56,7 +56,7 @@ public class MoveController : MonoBehaviour
 
 在Hierarchy 中复制Character_SpiritDemon_01 得到一个Character_SpiritDemon_01_Instancing，并且为后者添加AnimationInstancing.cs 脚本
 
-然后打开Animation-Instancing 的窗口，将Character_SpiritDemon_01_Instancing 拖入，点击Generate
+然后打开Animation-Instancing 的窗口，将Character_SpiritDemon_01_Instancing 拖入，点击Generate（提取骨骼动画数据，制作数据贴图）
 
 ![](../media/image/2021-03-01/04.png)
 
@@ -89,6 +89,12 @@ public class MoveController : MonoBehaviour
 * [Shader 动画：应用于DOTS 应用](http://www.xumenger.com/shader-animation-dots-20210117/)
 * [Shader 动画：基于GPU 的动画优化](http://www.xumenger.com/shader-animation-20210116/)
 * [Shader 动画：传统动画及性能分析方法论](http://www.xumenger.com/shader-animation-20210115/)
+
+这个技术会提升一点GPU 的消耗，因为我们把蒙皮放在了GPU 上。如果角色还有阴影的话，我们在shadow pass 中会再次计算蒙皮。然后，总体来看它提升了整体的帧率，因为我们大大降低了CPU 的消耗。通常在有大量角色存在的场景中，CPU 的消耗是主要的瓶颈
+
+我们需要的额外的内存占用是Animation Textures。这些纹理保存了蒙皮矩阵。我们使用了RGBAHalf 格式的纹理（对于不支持此纹理的平台我们还在找寻解决方法）。让我们假设一个角色有N 个骨骼且每骨骼保存4 个像素作为一个矩阵。我们预处理一个动画为M 帧。所以一个动画会花费N * 4 * M * 2 = 8NM bytes。如果一个角色有50个骨骼且我们生成30 帧的动画的话，一个动画会消耗50 * 4 * 30 = 6000 像素。所以一张1024x1024 的纹理可以存储174 个动画
+
+通过验证我们发现如果你的场景中有大量的SkinnedMeshRenderers，Animation Instancing 可以有效的降低CPU 的消耗。它十分适合那些有大量角色存在的游戏中，比如僵尸、战争模拟等类型游戏
 
 ## 参考资料
 
