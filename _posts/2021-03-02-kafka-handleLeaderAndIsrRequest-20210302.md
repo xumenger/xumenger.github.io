@@ -409,7 +409,7 @@ protected var mmap: MappedByteBuffer = {
 }
 ```
  
-可以看到这里面用到了`raf.getChannel.map(FileChannel.MapMode.READ_WRITE, 0, _length)`，这个刚好也是Kafka 零拷贝的其中一点（mmap）
+可以看到这里面用到了raf.getChannel.map(FileChannel.MapMode.READ\_WRITE, 0, \_length)，这个刚好也是Kafka 零拷贝的其中一点（mmap() 系统调用）
  
 ## 问题分析
  
