@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 源码面前了无秘密【Kafka】：分析KafkaApis.handleLeaderAndIsrRequest()
+title: 源码面前了无秘密【Kafka】：KafkaApis.handleLeaderAndIsrRequest
 categories: 源码面前了无秘密  
 tags: Java Kafka Scala JVM KafkaServer 消费者 消息队列 分布式 网络编程 网络 TCP IO多路复用 分布式选举 ISR 堆外内存 RandomAccessFile mmap 零拷贝 高性能 
 ---
