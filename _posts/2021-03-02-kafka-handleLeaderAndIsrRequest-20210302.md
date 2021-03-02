@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 源码面前了无秘密【Kafka】：基于一个报错初步分析KafkaApis.handleLeaderAndIsrRequest()
+title: 源码面前了无秘密【Kafka】：基于报错分析KafkaApis.handleLeaderAndIsrRequest()
 categories: 源码面前了无秘密  
 tags: Java Kafka Scala JVM KafkaServer 消费者 消息队列 分布式 网络编程 网络 TCP IO多路复用 分布式选举 ISR 堆外内存 RandomAccessFile mmap
 ---
@@ -372,7 +372,7 @@ private[cluster] def createLog(isNew: Boolean, isFutureReplica: Boolean, offsetC
 }
 ```
  
-如此逐层跟着异常调用栈往下分析，最终找到报错的地方在kafka.log.AbstractIndex.<init>(AbstractIndex.scala:125)
+如此逐层跟着异常调用栈往下分析，最终找到报错的地方在kafka.log.AbstractIndex.\<init>(AbstractIndex.scala:125)
  
 ```scala
 @volatile
