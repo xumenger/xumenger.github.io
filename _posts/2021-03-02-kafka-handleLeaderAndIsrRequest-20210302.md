@@ -13,7 +13,7 @@ D:
 cd \bigdata\zookeeper-3.5.9_2181\bin
 zkServer.cmd
  
-// 启动KafkaServer 9092端口
+// 启动KafkaServer 监听9092端口
 D:
 set JAVA_HOME=C:\Program Files (x86)\Java\jdk1.8.0_201\jre
 set PATH=%JAVA_HOME%\bin;%PATH%
@@ -94,7 +94,7 @@ Caused by: java.lang.OutOfMemoryError: Map failed
 结合Kafka 的源码，可以看到是在为分区选择Leader 的时候导致的异常，想到我自己的环境中只启动了一个KafkaServer，是不是因为这个原因，显然无法选出一个Leader，所以报错，于是重新在本地再配置基于9093 端口启动一个新的KafkaServer，并且连接到上面的Zookeeper 上，然后再运行Consumer，现在就可以正常消费了！
  
 ```cmd
-// 启动KafkaServer 基于9093 端口
+// 启动KafkaServer 监听9093 端口
 D:
 set JAVA_HOME=C:\Program Files (x86)\Java\jdk1.8.0_201\jre
 set PATH=%JAVA_HOME%\bin;%PATH%
@@ -374,7 +374,7 @@ private[cluster] def createLog(isNew: Boolean, isFutureReplica: Boolean, offsetC
  
 如此逐层跟着异常调用栈往下分析，最终找到报错的地方在kafka.log.AbstractIndex.<init>(AbstractIndex.scala:125)
  
-```
+```scala
 @volatile
 protected var mmap: MappedByteBuffer = {
   val newlyCreated = file.createNewFile()
