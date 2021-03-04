@@ -14,13 +14,40 @@ cd elasticsearch-6.1.2
 ./gradlew assemble
 ```
 
-![](../media/image/2021-03-03/01.png)
+可能会出现这样的报错
 
-为了将工程导入Eclipse，在ElasticSearch 的源码目录执行以下命令，生成Eclipse 的项目文件
+```
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/Users/xumenger/Desktop/gitlab/OpenSource/20210303-elastic/elasticsearch-6.1.2/benchmarks/build.gradle' line: 31
+
+* What went wrong:
+A problem occurred evaluating project ':benchmarks'.
+> Failed to apply plugin [id 'elasticsearch.build']
+   > JAVA_HOME must be set to build Elasticsearch
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 5s
+```
+
+查询到的一些说法是：elasticsearch 运行需要Java 1.8 但是构建项目需要Java 1.10
+
+不用管上面的报错，为了将工程导入Eclipse，在ElasticSearch 的源码目录执行以下命令，生成Eclipse 的项目文件
 
 ```sh
 gradle eclipse
 ```
+
+![](../media/image/2021-03-03/01.png)
+
+然后即可导入到Eclipse
+
+![](../media/image/2021-03-03/02.png)
 
 ## ElasticSearch 主要内部模块介绍
 
