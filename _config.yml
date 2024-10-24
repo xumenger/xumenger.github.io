@@ -1,0 +1,15 @@
+markdown: rdiscount
+permalink: /:title/
+url: http://xumenger.github.io
+#highlighter: pygments
+pygments: true
+name: xumenger
+description: xumenger | don't say just try
+author: xumenger
+email: xumenger@126.com
+uyan: xumenger
+weibo: 2679789741
+hub: xumenger 
+safe: true
+paginate: 70
+about: 
