@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Unity
-categories: 游戏开发
-tags: 游戏 2D 
+title: github SSL_ERROR_SYSCALL 报错问题处理
+categories: 版本管理
+tags: git github ssh 
 ---
 
 git push origin main 突然出现报错
 
-![](../media/image/2024-10-26/01.png)
+![](../media/image/2024-10-25/01.png)
 
-![](../media/image/2024-10-26/02.png)
+![](../media/image/2024-10-25/02.png)
 
 进行如下修改：
 
