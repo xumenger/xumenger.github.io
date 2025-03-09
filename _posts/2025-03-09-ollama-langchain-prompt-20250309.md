@@ -30,6 +30,7 @@ Langchain 需要使用Python 编写程序，记得要先安装Python3，本人�
 ```shell
 d:\llm\pyenv\langchain\scripts\python.exe -m pip install --upgrade pip
 pip3 install langchain
+pip3 install langchain_community
 ```
 
 LangChain框架由以下开源库组成：
@@ -47,24 +48,32 @@ LangChain 是一个旨在促进llm 与应用程序集成的框架。它广泛支
 
 将Ollama和Langchain整合集成需要安装Langchain及其依赖，需要安装
 
-```
+```shell
 pip3 install -U langchain-ollama
 ```
 
 ## 编写Python 程序实现最简单的提示词效果
 
+>注意需要使用虚拟环境下的python.exe，不能使用全局环境的Python，否则会报错依赖包没有安装！
+
 ```python
 from langchain_community.llms import Ollama
 from langchain_core.messages import HumanMessage, SystemMessage
 
-llm = Ollama(model="qwen:1.8b", temperature=0)
+llm = Ollama(model="qwen:1.8b")
 
 messages = [
     SystemMessage("比较如下两个数字的大小。"),
     HumanMessage("9.9和9.11"),
 ]
+print(llm.invoke(messages))
 
-print(model.invoke(messages).content)
+
+messages = [
+    SystemMessage("请比较一下下面两种水果的区别"),
+    HumanMessage("香蕉和火龙果"),
+]
+print(llm.invoke(messages))
 ```
 
 运行效果如下：
