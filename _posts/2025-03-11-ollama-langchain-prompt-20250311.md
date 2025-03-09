@@ -30,5 +30,14 @@ pip3 install langchain
 pip3 install langchain_community
 ```
 
+LangChain框架由以下开源库组成：
+
+* langchain-core：基础抽象和LangChain表达式语言
+* langchain-community：第三方集成。合作伙伴包（如langchain-openai、langchain-anthropic等），一些集成已经进一步拆分为自己的轻量级包，只依赖于langchain-core
+* langchain：构成应用程序认知架构的链、代理和检索策略
+* langgraph：通过将步骤建模为图中的边和节点，使用 LLMs 构建健壮且有状态的多参与者应用程序
+* langserve：将 LangChain 链部署为 REST API
+* LangSmith：一个开发者平台，可让您调试、测试、评估和监控LLM应用程序，并与LangChain无缝集成
+
 ## LangChain 对接Ollama
 
