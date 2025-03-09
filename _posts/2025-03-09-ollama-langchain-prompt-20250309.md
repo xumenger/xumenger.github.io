@@ -9,28 +9,27 @@ tags: ollama 大模型 提示词 LangChain Python 虚拟环境
 
 Langchain 需要使用Python 编写程序，记得要先安装Python3，本人选择Python3.13（否则无法正常安装langchain-ollama）
 
-![](../media/image/2025-03-11/01.png)
+![](../media/image/2025-03-09/01.png)
 
 创建Python虚拟环境，在虚拟环境中执行，可以避免各种软件包版本依赖问题
 
-创建D:\LLM\Python\20250311_LangChain，作为虚拟文件夹
+创建D:\LLM\PyEnv\LangChain，作为虚拟文件夹
 
 ```shell
-> cd D:\LLM\Python\
-> python3 -m venv 20250311_LangChain
-> .\20250311_LangChain\Scripts\activate
+> cd D:\LLM\PyEnv\
+> python3 -m venv LangChain
+> .\LangChain\Scripts\activate
 ```
 
-![](../media/image/2025-03-11/02.png)
+![](../media/image/2025-03-09/02.png)
 
 ## LangChain
 
-接着在虚拟环境中安装langchain、langchain_community
+接着在虚拟环境中安装langchain
 
 ```shell
-d:\llm\python\20250311_langchain\scripts\python.exe -m pip install --upgrade pip
+d:\llm\pyenv\langchain\scripts\python.exe -m pip install --upgrade pip
 pip3 install langchain
-pip3 install langchain_community
 ```
 
 LangChain框架由以下开源库组成：
@@ -52,3 +51,22 @@ LangChain 是一个旨在促进llm 与应用程序集成的框架。它广泛支
 pip3 install -U langchain-ollama
 ```
 
+## 编写Python 程序实现最简单的提示词效果
+
+```python
+from langchain_community.llms import Ollama
+from langchain_core.messages import HumanMessage, SystemMessage
+
+llm = Ollama(model="qwen:1.8b", temperature=0)
+
+messages = [
+    SystemMessage("比较如下两个数字的大小。"),
+    HumanMessage("9.9和9.11"),
+]
+
+print(model.invoke(messages).content)
+```
+
+运行效果如下：
+
+![](../media/image/2025-03-09/03.png)
