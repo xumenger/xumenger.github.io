@@ -79,3 +79,5 @@ print(llm.invoke(messages))
 运行效果如下：
 
 ![](../media/image/2025-03-09/03.png)
+
+可以看到，大模型对于数值比较的结果并符合我们的预期！
