@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Stable Diffusion Web UI环境搭建
+title: Stable Diffusion WebUI 环境搭建
 categories: 人工智能与大模型 游戏制作 
 tags: 大模型 多模态 绘画 
 ---
